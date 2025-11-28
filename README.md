@@ -82,11 +82,16 @@
 - Low retreival quality , BM25 is fundementally keyword-based and can't understand semantic similarity
 improvments : use semantic vectorized search , can be with a local model like BERT.
 
+- Planner node is complex and fails due to variable entitites (tables , columns , dates , KPI)
+Suggestions: 
+- break it down to several nodes but will slow down the preformance.
+
 - Low generated SQL quality , hallucinations. 
 Explaination : the model couldn't apply complex queries.
 suggestions:
 1 - Generate synthetic data , fine-tune model using (PEFT/unsloth/LLama-Factory) on our database.
 2 - using larger model or cloud model in repair node , save struggled questions-query for future fine-tunning.
+3- Add pre-generation multi planning nodes to simplify the task.
 
 
 - repairing node doesn't improve quality.
